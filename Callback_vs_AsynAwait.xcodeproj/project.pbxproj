@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C76D670F2ABB0E9F00477593 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D670E2ABB0E9F00477593 /* ViewModel.swift */; };
 		C7A751B52A66946600637326 /* Callback_vs_AsynAwaitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */; };
 		C7A751B72A66946600637326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A751B62A66946600637326 /* ContentView.swift */; };
 		C7A751B92A66946800637326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A751B82A66946800637326 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C76D670E2ABB0E9F00477593 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C7A751B12A66946600637326 /* Callback_vs_AsynAwait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Callback_vs_AsynAwait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback_vs_AsynAwaitApp.swift; sourceTree = "<group>"; };
 		C7A751B62A66946600637326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */,
+				C76D670E2ABB0E9F00477593 /* ViewModel.swift */,
 				C7A751B62A66946600637326 /* ContentView.swift */,
 				C7A751B82A66946800637326 /* Assets.xcassets */,
 				C7A751BA2A66946800637326 /* Preview Content */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A751B72A66946600637326 /* ContentView.swift in Sources */,
+				C76D670F2ABB0E9F00477593 /* ViewModel.swift in Sources */,
 				C7A751B52A66946600637326 /* Callback_vs_AsynAwaitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
