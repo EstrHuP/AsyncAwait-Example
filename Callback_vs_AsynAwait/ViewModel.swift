@@ -33,9 +33,20 @@ struct CharacterModel: Decodable {
         self.episode = try container.decode([String].self, forKey: CharacterModel.CodingKeys.episode)
         let locationContainter = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .location)
         self.locationName = try locationContainter.decode(String.self, forKey: .name)
-        self.locationURL = try container.decode(String.self, forKey: .locationURL)
+        self.locationURL = try locationContainter.decode(String.self, forKey: .locationURL)
         
     }
+}
+
+struct EpisodeModel: Decodable {
+    let id: Int
+    let name: String
+}
+
+struct LocationModel: Decodable {
+    let id: Int
+    let name: String
+    let dimension: String
 }
 
 final class ViewModel {
@@ -45,7 +56,22 @@ final class ViewModel {
         
         URLSession.shared.dataTask(with: characterURL) { data, response, error in
             let characterModel = try! JSONDecoder().decode(CharacterModel.self, from: data!)
-            print(characterModel)
-        }.resume()
+            print("Character: \(characterModel)")
+            
+            let firstEpisodeURL = URL(string: characterModel.episode.first!)!
+            URLSession.shared.dataTask(with: firstEpisodeURL) { data, response, error in
+                let episodeModel = try! JSONDecoder().decode(EpisodeModel.self, from: data!)
+                print("Episode: \(episodeModel)")
+                
+                let characterLocationURL = URL(string: characterModel.locationURL)!
+                URLSession.shared.dataTask(with: characterLocationURL) { data, response, error in
+                    let locationModel = try! JSONDecoder().decode(LocationModel.self, from: data!)
+                    print("Location: \(locationModel)")
+                }
+                .resume()
+            }
+            .resume()
+        }
+        .resume()
     }
 }
