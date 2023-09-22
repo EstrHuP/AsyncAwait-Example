@@ -12,6 +12,7 @@
 		C76D67182ABE04BD00477593 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D67172ABE04BD00477593 /* EpisodeModel.swift */; };
 		C76D671A2ABE04D300477593 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D67192ABE04D300477593 /* LocationModel.swift */; };
 		C76D671C2ABE04EB00477593 /* CharacterInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D671B2ABE04EB00477593 /* CharacterInfoModel.swift */; };
+		C76D671F2ABE092B00477593 /* HttpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D671E2ABE092B00477593 /* HttpConstants.swift */; };
 		C7A751B52A66946600637326 /* Callback_vs_AsynAwaitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */; };
 		C7A751B72A66946600637326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A751B62A66946600637326 /* ContentView.swift */; };
 		C7A751B92A66946800637326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A751B82A66946800637326 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		C76D67172ABE04BD00477593 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		C76D67192ABE04D300477593 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		C76D671B2ABE04EB00477593 /* CharacterInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoModel.swift; sourceTree = "<group>"; };
+		C76D671E2ABE092B00477593 /* HttpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConstants.swift; sourceTree = "<group>"; };
 		C7A751B12A66946600637326 /* Callback_vs_AsynAwait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Callback_vs_AsynAwait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback_vs_AsynAwaitApp.swift; sourceTree = "<group>"; };
 		C7A751B62A66946600637326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C76D671D2ABE091A00477593 /* Contants */ = {
+			isa = PBXGroup;
+			children = (
+				C76D671E2ABE092B00477593 /* HttpConstants.swift */,
+			);
+			path = Contants;
+			sourceTree = "<group>";
+		};
 		C7A751A82A66946500637326 = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +98,10 @@
 		C7A751B32A66946600637326 /* Callback_vs_AsynAwait */ = {
 			isa = PBXGroup;
 			children = (
-				C76D67132ABE046C00477593 /* ViewModel */,
-				C76D67122ABE046500477593 /* View */,
+				C76D671D2ABE091A00477593 /* Contants */,
 				C76D67112ABE045D00477593 /* Model */,
+				C76D67122ABE046500477593 /* View */,
+				C76D67132ABE046C00477593 /* ViewModel */,
 				C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */,
 				C7A751B82A66946800637326 /* Assets.xcassets */,
 				C7A751BA2A66946800637326 /* Preview Content */,
@@ -181,6 +192,7 @@
 				C76D670F2ABB0E9F00477593 /* ViewModel.swift in Sources */,
 				C7A751B52A66946600637326 /* Callback_vs_AsynAwaitApp.swift in Sources */,
 				C76D671A2ABE04D300477593 /* LocationModel.swift in Sources */,
+				C76D671F2ABE092B00477593 /* HttpConstants.swift in Sources */,
 				C76D67182ABE04BD00477593 /* EpisodeModel.swift in Sources */,
 				C76D671C2ABE04EB00477593 /* CharacterInfoModel.swift in Sources */,
 			);

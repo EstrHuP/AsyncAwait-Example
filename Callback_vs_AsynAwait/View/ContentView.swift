@@ -18,7 +18,9 @@ struct ContentView: View {
             Text("First Episode: \(viewModel.characterBasicInfo.firstEpisodeTitle)")
             Text("Dimension: \(viewModel.characterBasicInfo.dimension)")
         }.onAppear {
-            viewModel.executeRequest()
+            Task {
+                await viewModel.executeRequestWithAsyncAwait()
+            }
         }
     }
 }
