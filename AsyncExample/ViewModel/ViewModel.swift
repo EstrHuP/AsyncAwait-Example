@@ -1,11 +1,12 @@
 //
 //  ViewModel.swift
-//  Callback_vs_AsynAwait
+//  AsyncExample
 //
 //  Created by EstrHuP on 20/9/23.
 //
 
 import Foundation
+import Combine
 
 final class ViewModel: ObservableObject {
     
@@ -77,5 +78,47 @@ final class ViewModel: ObservableObject {
                                             firstEpisodeTitle: episodeModel.name,
                                             dimension: locationModel.dimension)
         }
+    }
+    
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    func executeRequestWithCombine() {
+        guard let characterURL = URL(string: HttpConstants.baseURL) else { return }
+
+        //1. Character call
+        URLSession.shared.dataTaskPublisher(for: characterURL)
+            .map(\.data)
+            .decode(type: CharacterModel.self, decoder: JSONDecoder())
+        
+            //2. Episode call
+            .flatMap { characterModel in
+                let firstEpisodeURL = URL(string: characterModel.episode.first!)!
+                return URLSession.shared.dataTaskPublisher(for: firstEpisodeURL)
+                    .map(\.data)
+                    .decode(type: EpisodeModel.self, decoder: JSONDecoder())
+                    .map { (characterModel, $0) }
+            }
+            //3. Location call
+            .flatMap { characterModel, episodeModel in
+                let characterLocationURL = URL(string: characterModel.locationURL)!
+                return URLSession.shared.dataTaskPublisher(for: characterLocationURL)
+                    .map(\.data)
+                    .decode(type: LocationModel.self, decoder: JSONDecoder())
+                    .map { (characterModel, episodeModel, $0) }
+            }
+            //execute in main thread
+            .receive(on: DispatchQueue.main)
+        
+            //Save data in model (suscribe)
+            .sink(receiveCompletion: { _ in },
+                  receiveValue: { characterModel, episodeModel, locationModel in
+                self.characterBasicInfo = .init(name: characterModel.name,
+                                                image: URL(string: characterModel.image),
+                                                firstEpisodeTitle: episodeModel.name,
+                                                dimension: locationModel.dimension)
+            })
+            //cancel suscription when view is remove
+            .store(in: &cancellables)
     }
 }

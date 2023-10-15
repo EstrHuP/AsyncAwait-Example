@@ -1,13 +1,14 @@
 //
-//  EpisodeModel.swift
-//  Callback_vs_AsynAwait
+//  LocationModel.swift
+//  AsyncExample
 //
 //  Created by EstrHuP on 22/9/23.
 //
 
 import Foundation
 
-struct EpisodeModel: Decodable {
+struct LocationModel: Decodable {
     let id: Int
     let name: String
+    let dimension: String
 }

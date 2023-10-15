@@ -26,7 +26,7 @@
 		C76D67192ABE04D300477593 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		C76D671B2ABE04EB00477593 /* CharacterInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoModel.swift; sourceTree = "<group>"; };
 		C76D671E2ABE092B00477593 /* HttpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConstants.swift; sourceTree = "<group>"; };
-		C7A751B12A66946600637326 /* Callback_vs_AsynAwait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Callback_vs_AsynAwait.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A751B12A66946600637326 /* AsyncExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A751B42A66946600637326 /* Callback_vs_AsynAwaitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback_vs_AsynAwaitApp.swift; sourceTree = "<group>"; };
 		C7A751B62A66946600637326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C7A751B82A66946800637326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		C7A751A82A66946500637326 = {
 			isa = PBXGroup;
 			children = (
-				C7A751B32A66946600637326 /* Callback_vs_AsynAwait */,
+				C7A751B32A66946600637326 /* AsyncExample */,
 				C7A751B22A66946600637326 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,12 +90,12 @@
 		C7A751B22A66946600637326 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7A751B12A66946600637326 /* Callback_vs_AsynAwait.app */,
+				C7A751B12A66946600637326 /* AsyncExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7A751B32A66946600637326 /* Callback_vs_AsynAwait */ = {
+		C7A751B32A66946600637326 /* AsyncExample */ = {
 			isa = PBXGroup;
 			children = (
 				C76D671D2ABE091A00477593 /* Contants */,
@@ -106,7 +106,7 @@
 				C7A751B82A66946800637326 /* Assets.xcassets */,
 				C7A751BA2A66946800637326 /* Preview Content */,
 			);
-			path = Callback_vs_AsynAwait;
+			path = AsyncExample;
 			sourceTree = "<group>";
 		};
 		C7A751BA2A66946800637326 /* Preview Content */ = {
@@ -120,9 +120,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7A751B02A66946600637326 /* Callback_vs_AsynAwait */ = {
+		C7A751B02A66946600637326 /* AsyncExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7A751BF2A66946800637326 /* Build configuration list for PBXNativeTarget "Callback_vs_AsynAwait" */;
+			buildConfigurationList = C7A751BF2A66946800637326 /* Build configuration list for PBXNativeTarget "AsyncExample" */;
 			buildPhases = (
 				C7A751AD2A66946600637326 /* Sources */,
 				C7A751AE2A66946600637326 /* Frameworks */,
@@ -132,9 +132,9 @@
 			);
 			dependencies = (
 			);
-			name = Callback_vs_AsynAwait;
+			name = AsyncExample;
 			productName = Callback_vs_AsynAwait;
-			productReference = C7A751B12A66946600637326 /* Callback_vs_AsynAwait.app */;
+			productReference = C7A751B12A66946600637326 /* AsyncExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,7 +152,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C7A751AC2A66946500637326 /* Build configuration list for PBXProject "Callback_vs_AsynAwait" */;
+			buildConfigurationList = C7A751AC2A66946500637326 /* Build configuration list for PBXProject "AsyncExample" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,7 +165,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7A751B02A66946600637326 /* Callback_vs_AsynAwait */,
+				C7A751B02A66946600637326 /* AsyncExample */,
 			);
 		};
 /* End PBXProject section */
@@ -322,7 +322,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Callback_vs_AsynAwait/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AsyncExample/Preview Content\"";
 				DEVELOPMENT_TEAM = 998HSZS578;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -351,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Callback_vs_AsynAwait/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AsyncExample/Preview Content\"";
 				DEVELOPMENT_TEAM = 998HSZS578;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -376,7 +376,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7A751AC2A66946500637326 /* Build configuration list for PBXProject "Callback_vs_AsynAwait" */ = {
+		C7A751AC2A66946500637326 /* Build configuration list for PBXProject "AsyncExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7A751BD2A66946800637326 /* Debug */,
@@ -385,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7A751BF2A66946800637326 /* Build configuration list for PBXNativeTarget "Callback_vs_AsynAwait" */ = {
+		C7A751BF2A66946800637326 /* Build configuration list for PBXNativeTarget "AsyncExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7A751C02A66946800637326 /* Debug */,

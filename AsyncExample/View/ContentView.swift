@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Callback_vs_AsynAwait
+//  AsyncExample
 //
 //  Created by EstrHuP on 18/7/23.
 //
@@ -18,9 +18,7 @@ struct ContentView: View {
             Text("First Episode: \(viewModel.characterBasicInfo.firstEpisodeTitle)")
             Text("Dimension: \(viewModel.characterBasicInfo.dimension)")
         }.onAppear {
-            Task {
-                await viewModel.executeRequestWithAsyncAwait()
-            }
+            viewModel.executeRequestWithCombine()
         }
     }
 }
