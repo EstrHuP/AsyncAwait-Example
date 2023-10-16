@@ -10,6 +10,6 @@ import Foundation
 struct HttpConstants {
     
     static var baseURL: String {
-        return "https://rickandmortyapi.com/api/character/1"
+        return "https://rickandmortyapi.com/api/character/3"
     }
 }

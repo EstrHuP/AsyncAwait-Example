@@ -17,7 +17,7 @@ struct ContentView: View {
             Text("Name: \(viewModel.characterBasicInfo.name)")
             Text("First Episode: \(viewModel.characterBasicInfo.firstEpisodeTitle)")
             Text("Dimension: \(viewModel.characterBasicInfo.dimension)")
-        }.onAppear {
+        }.task {
             viewModel.executeRequestWithCombine()
         }
     }

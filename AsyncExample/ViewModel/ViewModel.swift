@@ -12,6 +12,7 @@ final class ViewModel: ObservableObject {
     
     @Published var characterBasicInfo: CharacterInfoModel = .empty
     
+    //MARK: - Callback
     func executeRequestWithCallback() {
         guard let characterURL = URL(string: HttpConstants.baseURL) else { return }
         
@@ -51,36 +52,66 @@ final class ViewModel: ObservableObject {
         .resume()
     }
     
-    func executeRequestWithAsyncAwait() async {
+    func executeRequestWithCallbackClean() {
         guard let characterURL = URL(string: HttpConstants.baseURL) else { return }
-
+        
         // 1. Character call
-        let (data, _) = try! await URLSession.shared.data(from: characterURL)
-        let characterModel = try! JSONDecoder().decode(CharacterModel.self, from: data)
-        print("Character: \(characterModel)")
-        
-        // 2. First episode call
-        let firstEpisodeURL = URL(string: characterModel.episode.first!)!
-        let (dataEpisode, _) = try! await URLSession.shared.data(from: firstEpisodeURL)
-        let episodeModel = try! JSONDecoder().decode(EpisodeModel.self, from: dataEpisode)
-        print("Episode: \(episodeModel)")
-        
-        // 3. Location call
-        let locationURL = URL(string: characterModel.locationURL)!
-        let (dataLocation, _) = try! await URLSession.shared.data(from: locationURL)
-        let locationModel = try! JSONDecoder().decode(LocationModel.self, from: dataLocation)
-        print("Location: \(locationModel)")
-
-        // Save character data in empty model
-        DispatchQueue.main.async {
-            self.characterBasicInfo = .init(name: characterModel.name,
-                                            image: URL(string: characterModel.image),
-                                            firstEpisodeTitle: episodeModel.name,
-                                            dimension: locationModel.dimension)
+        Utils.shared.performDataTask(with: characterURL) { (characterModel: CharacterModel) in
+            // 2. First episode call
+            if let firstEpisodeURL = URL(string: characterModel.episode.first!) {
+                Utils.shared.performDataTask(with: firstEpisodeURL) { (episodeModel: EpisodeModel) in
+                    // 3. Location call
+                    if let locationURL = URL(string: characterModel.locationURL) {
+                        Utils.shared.performDataTask(with: locationURL) { (locationModel: LocationModel) in
+                            // Save character data in empty model
+                            DispatchQueue.main.async {
+                                self.characterBasicInfo = .init(name: characterModel.name,
+                                                                image: URL(string: characterModel.image),
+                                                                firstEpisodeTitle: episodeModel.name,
+                                                                dimension: locationModel.dimension)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     
+    //MARK: - async/await
+    func executeRequestWithAsyncAwait() async {
+        guard let characterURL = URL(string: HttpConstants.baseURL) else { return }
+
+        do {
+            // 1. Character call
+            let (data, _) = try await URLSession.shared.data(from: characterURL)
+            let characterModel = try! JSONDecoder().decode(CharacterModel.self, from: data)
+            print("Character: \(characterModel)")
+            
+            // 2. First episode call
+            let firstEpisodeURL = URL(string: characterModel.episode.first!)!
+            let (dataEpisode, _) = try await URLSession.shared.data(from: firstEpisodeURL)
+            let episodeModel = try JSONDecoder().decode(EpisodeModel.self, from: dataEpisode)
+            print("Episode: \(episodeModel)")
+            
+            // 3. Location call
+            let locationURL = URL(string: characterModel.locationURL)!
+            let (dataLocation, _) = try await URLSession.shared.data(from: locationURL)
+            let locationModel = try JSONDecoder().decode(LocationModel.self, from: dataLocation)
+            print("Location: \(locationModel)")
+            
+            // Save character data in empty model
+            DispatchQueue.main.async {
+                self.characterBasicInfo = .init(name: characterModel.name,
+                                                image: URL(string: characterModel.image),
+                                                firstEpisodeTitle: episodeModel.name,
+                                                dimension: locationModel.dimension)
+            }
+        } catch {
+            print("Async/await error: \(error)")
+        }
+    }
     
+    //MARK: - Combine
     private var cancellables = Set<AnyCancellable>()
     
     func executeRequestWithCombine() {
